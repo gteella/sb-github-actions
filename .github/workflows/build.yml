@@ -33,6 +33,7 @@ jobs:
       run: ./gradlew clean build
 
     - name: auto increment and release tag
+      id: release
       run: ./gradlew release
 
     - run: |
