@@ -14,13 +14,6 @@ jobs:
       contents: read
 
     steps:
-    - name: Configure Git for PAT
-      run: |
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git remote set-url origin https://$PAT_TOKEN@github.com/${{ github.repository }}.git
-      env:
-        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
 
     - uses: actions/checkout@v4
     - name: Set up JDK 17
@@ -28,6 +21,14 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+
+    - name: Configure Git for PAT
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git remote set-url origin https://$PAT_TOKEN@github.com/${{ github.repository }}.git
+      env:
+        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
 
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
