@@ -19,6 +19,7 @@ scmVersion {
     tag {
         prefix.set("app-")
     }
+    versionIncrementer = "incrementMinor"
 }
 
 project.version = scmVersion.version

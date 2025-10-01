@@ -46,6 +46,9 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
+    - run: |
+        echo ${{ env.REGISTRY }}
+
     - name: Build and push Docker image
       id: push
       uses: docker/build-push-action@v3
