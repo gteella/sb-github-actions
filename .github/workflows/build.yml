@@ -21,6 +21,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+    # Configure Git for commits & tagging
+    - name: Configure Git
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
 
