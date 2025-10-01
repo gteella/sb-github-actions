@@ -27,4 +27,7 @@ jobs:
     - name: Build with Gradle Wrapper
       run: ./gradlew build
 
+    - name: auto increment and release tag
+      run: ./gradlew release -Prelease.pushTags=true
+
    
