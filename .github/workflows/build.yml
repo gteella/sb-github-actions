@@ -49,12 +49,20 @@ jobs:
 
     - run: |
         echo ${{ env.REGISTRY }}
+    - run: |
+        echo ${{ env.IMAGE_NAME }}
 
     - name: Extract metadata (tags, labels) for Docker
       id: meta
       uses: docker/metadata-action@v5
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+    - run: |
+        echo ${{ steps.meta.outputs.tags }}
+
+    - run: |
+        echo ${{ steps.meta.outputs.labels }}
 
     - name: Build and push Docker image
       id: push
